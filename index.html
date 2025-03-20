@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alok Kumar - Developer & Music Tutor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .dark { background-color: #1a1a1a; color: #ffffff; }
+        .project-card:hover { transform: translateY(-5px); }
+        .loading { animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="bg-white transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50 dark:bg-gray-900/80">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="#home" class="text-xl font-bold text-blue-600">AK</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-blue-600">Home</a>
+                    <a href="#about" class="hover:text-blue-600">About</a>
+                    <a href="#projects" class="hover:text-blue-600">Projects</a>
+                    <a href="#courses" class="hover:text-blue-600">Music Courses</a>
+                    <a href="#contact" class="hover:text-blue-600">Contact</a>
+                </div>
+                <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Alok Kumar</h1>
+                    <p class="text-xl text-gray-600 mb-8">Frontend Developer & Music Tutor</p>
+                    <div class="flex gap-4">
+                        <a href="#courses" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">View Courses</a>
+                        <a href="#contact" class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50">Hire Me</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a" alt="Profile" class="rounded-full w-64 h-64 object-cover mx-auto shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Experience</h3>
+                    <div class="mb-6">
+                        <p class="font-medium">Frontend Developer Intern</p>
+                        <p class="text-gray-600">Pug Esports Academy</p>
+                        <p class="text-sm text-gray-500">April 2024 - July 2024</p>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Education</h3>
+                    <div class="mb-6">
+                        <p class="font-medium">B.Tech in Computer Science & Engineering</p>
+                        <p class="text-gray-600">UIT, CSJMU, Kanpur</p>
+                        <p class="text-sm text-gray-500">2021-2025</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Skills</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <p class="font-medium">Frontend</p>
+                            <p class="text-sm text-gray-600">React.js, Next.js, Tailwind CSS</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <p class="font-medium">Languages</p>
+                            <p class="text-sm text-gray-600">JavaScript, HTML, CSS</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <p class="font-medium">Tools</p>
+                            <p class="text-sm text-gray-600">Git, VS Code, Figma</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <p class="font-medium">Other</p>
+                            <p class="text-sm text-gray-600">API Integration, Debugging</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 project-card">
+                    <h3 class="text-xl font-semibold mb-4">Employee Management System</h3>
+                    <p class="text-gray-600 mb-4">Built with React, Vite, and Tailwind CSS</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-blue-600 hover:underline"><i class="bi bi-github"></i> View Code</a>
+                        <a href="#" class="text-blue-600 hover:underline"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 project-card">
+                    <h3 class="text-xl font-semibold mb-4">Tiptap Text Editor</h3>
+                    <p class="text-gray-600 mb-4">Rich Text Editor using React and TipTap</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-blue-600 hover:underline"><i class="bi bi-github"></i> View Code</a>
+                        <a href="#" class="text-blue-600 hover:underline"><i class="bi bi-box-arrow-up-right"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Courses Section -->
+    <section id="courses" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Music Courses</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4">Beginner Course</h3>
+                    <p class="text-3xl font-bold mb-4">₹1999<span class="text-sm text-gray-600">/month</span></p>
+                    <ul class="mb-6 space-y-2">
+                        <li><i class="bi bi-check-circle text-green-500"></i> Basic Music Theory</li>
+                        <li><i class="bi bi-check-circle text-green-500"></i> 8 Classes per Month</li>
+                        <li><i class="bi bi-check-circle text-green-500"></i> Practice Materials</li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700" onclick="purchaseCourse('beginner')">Enroll Now</button>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 border-2 border-blue-600">
+                    <h3 class="text-xl font-semibold mb-4">Intermediate Course</h3>
+                    <p class="text-3xl font-bold mb-4">₹2999<span class="text-sm text-gray-600">/month</span></p>
+                    <ul class="mb-6 space-y-2">
+                        <li><i class="bi bi-check-circle text-green-500"></i> Advanced Theory</li>
+                        <li><i class="bi bi-check-circle text-green-500"></i> 12 Classes per Month</li>
+                        <li><i class="bi bi-check-circle text-green-500"></i> 1-on-1 Sessions</li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700" onclick="purchaseCourse('intermediate')">Enroll Now</button>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4">Advanced Course</h3>
+                    <p class="text-3xl font-bold mb-4">₹4999<span class="text-sm text-gray-600">/month</span></p>
+                    <ul class="mb-6 space-y-2">
+                        <li><i class="bi bi-check-circle text-green-500"></i> Professional Training</li>
+                        <li><i class="bi bi-check-circle text-green-500"></i> 16 Classes per Month</li>
+                        <li><i class="bi bi-check-circle text-green-500"></i> Performance Training</li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700" onclick="purchaseCourse('advanced')">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Get in Touch</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Name</label>
+                            <input type="text" class="w-full p-2 border rounded-lg" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Email</label>
+                            <input type="email" class="w-full p-2 border rounded-lg" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Message</label>
+                            <textarea class="w-full p-2 border rounded-lg h-32" required></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Send Message</button>
+                    </form>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                        <p class="flex items-center gap-2 mb-2"><i class="bi bi-envelope"></i> alok@example.com</p>
+                        <p class="flex items-center gap-2 mb-2"><i class="bi bi-phone"></i> +91 1234567890</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Social Links</h3>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-2xl hover:text-blue-600"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="text-2xl hover:text-blue-600"><i class="bi bi-github"></i></a>
+                            <a href="#" class="text-2xl hover:text-blue-600"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/1234567890" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600">
+        <i class="bi bi-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        let isDark = false;
+
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            body.classList.toggle('dark');
+            themeToggle.innerHTML = isDark ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>';
+        });
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Message sent successfully!');
+            e.target.reset();
+        });
+
+        // Course Purchase
+        async function purchaseCourse(level) {
+            try {
+                // Implement your payment gateway integration here
+                alert(`Redirecting to payment gateway for ${level} course...`);
+            } catch (error) {
+                console.error('Payment failed:', error);
+                alert('Payment failed. Please try again.');
+            }
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
